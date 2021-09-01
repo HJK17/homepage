@@ -241,8 +241,8 @@ class UserCenterView(LoginRequiredMixin, View):
         username = request.POST.get('username', user.username)
         user_desc = request.POST.get('desc', user.user_desc)
 
-        # if not re.match(r'^[0-9A-Za-z]{3,20}$', username):
-        #     return redirect(reverse("studyusers:center"))
+        if not re.match(r'^[0-9A-Za-z]{3,20}$', username):
+            return redirect(reverse("studyusers:center"))
 
         try:
             user.username = username
