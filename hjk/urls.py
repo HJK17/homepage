@@ -1,0 +1,15 @@
+from django.contrib import admin
+from django.urls import path, include
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('personal_project.urls', namespace='project')),
+    path('', include('home.urls', namespace='studyhome')),
+    path('', include('users.urls', namespace='studyusers')),
+]
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

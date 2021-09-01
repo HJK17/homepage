@@ -1,0 +1,100 @@
+﻿<html>
+{% load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=11" id="mixia_vpid">
+    <title>十七个人主页</title>
+    <meta name=keywords content="十七个人主页">
+    <meta name=description content="十七个人主页">
+    <link rel="icon" href="#">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</head>
+
+<body>
+<span class="mobile btn-mobile-menu">
+        <i class="fa fa-bars btn-mobile-menu__icon"></i>
+        <i class="fa fa-chevron-circle-up btn-mobile-close__icon hidden"></i>
+    </span>
+<div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+        <div class="panel-main__content">
+            <a href="#" title="十七博客"><img src="{% static 'images/hjk.jpg' %}" width="150" alt="LOGO" class="panel-cover__logo logo"></a>
+{#            <h1 class="panel-cover__title panel-title"><a href="#" title="十七">十七博客</a></h1>#}
+            <span class="panel-cover__subtitle panel-subtitle"><script>hitokoto()</script>
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">十七个人主页</br>突破自己，干就完事！</p>
+        <hr class="panel-cover__divider"> 
+        <p class="panel-cover__description">欢迎来到我的主页！</p>
+	<p class="footer">Copyright © 2021  十七博客 All Rights Reserved.</p>
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="{% url 'studyhome:homepage' %}" title="十七博客">十七博客</a></li>
+                <li class="navigation__item"><a href="{% url 'project:homeproject' %}" title="我的项目">我的项目</a></li>
+                <li class="navigation__item"><a href="#" title="渝悦时刻">渝悦时刻</a></li>
+              </ul>
+            </nav>
+          </div>
+<div>
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="/" title="我的微博" target="_blank">
+      <i class="social fa fa-weibo"></i>
+    </a>
+  </li>
+      <!-- QQ -->
+  <li class="navigation__item">
+    <a href="#" title="@QQ" target="_blank">
+      <i class="social fa fa-qq"></i>
+    </a>
+  </li>
+      <!-- Weixin -->
+  <li class="navigation__item">
+    <a data-v="" href="#" title="扫一扫加我微信" class="wechat">
+{#	<div data-v="" class="qrCode">#}
+{#	 <img data-v="" src="#" width="92"#}
+{#          onclick="window.open(&quot;http://baidu.com;)">#}
+{#	  <div data-v="" class="triangle-down"></div>#}
+{#	</div>#}
+      <i class="social fa fa-weixin"></i>
+    </a>
+  </li>
+      <!-- Telegram -->
+  <li class="navigation__item">
+    <a href="#" title="导航" target="_blank">
+      <i class="social fa fa-telegram"></i>
+    </a>
+  </li>
+      <!-- RSS -->
+  <li class="navigation__item">
+    <a href="#" rel="author" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+    </a>
+  </li>
+      <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:13212524355@163.com" title="发邮件给我">
+      <i class="social fa fa-envelope"></i>
+    </a>
+  </li>
+  </ul>
+</nav>
+</div>
+        </div>
+        </div>
+    </div>
+    <div class="panel-cover--overlay cover-slate"></div>
+</div>
+</header>
+
+
+</body>
+</html>

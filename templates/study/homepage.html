@@ -1,0 +1,112 @@
+{% extends 'study/base.html' %}
+{% load static %}
+{% block title %}十七博客{% endblock title %}
+{% block topfiles %}
+    <!-- 引入monikai.css -->
+    <link rel="stylesheet" href="{% static 'md_css/monokai.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'common/common.css' %}">
+    <link rel="stylesheet" href="{% static 'common/jquery.pagination.css' %}">
+    <script type="text/javascript" src="{% static 'js/axios-0.18.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+{% endblock topfiles %}
+{% block reindex %}
+        <div>
+            <a class="navbar-brand" href="{% url 'studyhome:index' %}">首页</a>
+        </div>
+{% endblock reindex %}
+{% block classify %}
+    <!-- 分类 -->
+    <div class="collapse navbar-collapse">
+        <div>
+            <ul class="nav navbar-nav">
+                {% for cat in categories %}
+                    {% if cat.id == category.id %}
+                        <li class="nav-item active">
+                            <a class="nav-link mr-2" href="/study/homepage/?cat_id={{ cat.id }}">{{ cat.title }}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link mr-2" href="/study/homepage/?cat_id={{ cat.id }}">{{ cat.title }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock classify %}
+
+
+{% block body %}
+        <!-- content -->
+    <div class="container">
+        <!-- 列表循环 -->
+        {% for article in articles %}
+        <div class="row mt-2">
+            <!-- 文章内容 -->
+            <!-- 标题图 -->
+            <div class="col-3">
+                <a href="{% url 'studyhome:detail' %}?id={{ article.id }}" >
+                    <img src="{{ article.avatar.url }}" alt="avatar" style="max-width:100%; border-radius: 20px">
+                </a>
+            </div>
+            <div class="col">
+                <!-- 栏目 -->
+                <a role="button" class="btn btn-sm mb-2 btn-warning">{{ article.category.title }}</a>
+                <!-- 标签 -->
+                <span>
+                        <a class="badge badge-secondary">{{ article.tags }}</a>
+                </span>
+                <!-- 标题 -->
+                <h4>
+                    <b><a href="{% url 'studyhome:detail' %}?id={{ article.id }}" style="color: black;">{{ article.title }}</a></b>
+                </h4>
+                <!-- 摘要 -->
+                <div>
+                    <p style="color: gray;">
+                        {{ article.sumary }}
+                    </p>
+                </div>
+                <!-- 注脚 -->
+                <p>
+                    <!-- 点赞、查看、评论、时间 -->
+                    <span><i class="fas fa-eye" style="color: lightskyblue;"></i>{{ article.total_views }}&nbsp;&nbsp;&nbsp;</span>
+                    <span><i class="fas fa-comments" style="color: yellowgreen;"></i>{{ article.comments_count }}&nbsp;&nbsp;&nbsp;</span>
+                    <span><i class="fas fa-clock" style="color: pink;"></i>{{ article.created | date }}</span>
+                </p>
+            </div>
+            <hr style="width: 100%;"/>
+        </div>
+        {% endfor %}
+        <!-- 页码导航 -->
+        <div class="pagenation" style="text-align: center">
+            <div id="pagination" class="page"></div>
+        </div>
+    </div>
+
+{% endblock body %}
+
+<!-- 引入js -->
+{% block injs %}
+    <script type="text/javascript" src="{% static 'js/host.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.pagination.min.js' %}"></script>
+{% endblock injs %}
+
+{% block bottomfiles %}
+    <script type="text/javascript">
+        $(function () {
+            $('#pagination').pagination({
+                currentPage: {{ page_num }},
+                totalPage: {{ total_page }},
+                callback: function (current) {
+
+                    location.href = '/?cat_id={{ category.id }}&page_size={{ page_size }}&page_num=' + current;
+                }
+            })
+        });
+    </script>
+{% endblock bottomfiles %}
+
