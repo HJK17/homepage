@@ -1,0 +1,56 @@
+{% extends 'study/base.html' %}
+{% load static %}
+{% block title %}用户信息{% endblock title %}
+{% block topfiles %}
+    <script type="text/javascript" src="{% static 'js/axios-0.18.0.min.js' %}"></script>
+{% endblock topfiles %}
+
+
+{% block body %}
+    <div class="container" style="margin-bottom: 20px">
+        <div class="row">
+            <div class="col-12">
+                <br>
+                <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <!-- username -->
+                <div class="form-group col-md-4">
+                    <label for="username">用户名</label>
+                    <input type="text" placeholder="仅支持3-20位数字字母" class="form-control" id="username" name="username" value="{{ username }}" >
+                </div>
+                    {% if avatar %}
+                        <br> <div class="col-md-4">头像</div>
+                        <img src="{{ avatar }}" style="max-width: 20%;" class="col-md-4"><br>
+                        {% else %}
+                        <br><h5 class="col-md-4">暂无头像</h5><br>
+                    {% endif %}
+                    <!-- avatar -->
+                    <div class="form-group col-md-4">
+                        <label for="avatar">上传头像</label>
+                        <input type="file" class="form-control-file" name="avatar" id="avatar">
+                    </div>
+
+                    <!-- phone -->
+                    <div class="form-group col-md-4">
+                        <label for="phone">电话</label>
+                        <input type="text" class="form-control" disabled="disabled" id="phone" name="phone" value="{{ mobile }}">
+                    </div>
+                    <!-- desc -->
+                    <div class="form-group col-md-4">
+                        <label for="desc">简介</label>
+                        <!-- 文本区域 -->
+                        <textarea type="text" class="form-control" id="desc" name="desc" rows="12" >{{ user_desc }}</textarea>
+                    </div>
+                    <!-- 提交按钮 -->
+                    <button type="submit" class="btn btn-primary" style="margin-left: 12px" >修改</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block injs %}
+    <script type="text/javascript" src="{% static 'js/host.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/center.js' %}"></script>
+{% endblock injs %}
