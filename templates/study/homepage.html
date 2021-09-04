@@ -12,9 +12,9 @@
     <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
 {% endblock topfiles %}
 {% block reindex %}
-        <div>
-            <a class="navbar-brand" href="{% url 'studyhome:index' %}">首页</a>
-        </div>
+    <div>
+        <a class="navbar-brand" href="{% url 'studyhome:index' %}">首页</a>
+    </div>
 {% endblock reindex %}
 {% block classify %}
     <!-- 分类 -->
@@ -39,45 +39,46 @@
 
 
 {% block body %}
-        <!-- content -->
+    <!-- content -->
     <div class="container">
         <!-- 列表循环 -->
         {% for article in articles %}
-        <div class="row mt-2">
-            <!-- 文章内容 -->
-            <!-- 标题图 -->
-            <div class="col-3">
-                <a href="{% url 'studyhome:detail' %}?id={{ article.id }}" >
-                    <img src="{{ article.avatar.url }}" alt="avatar" style="max-width:100%; border-radius: 20px">
-                </a>
-            </div>
-            <div class="col">
-                <!-- 栏目 -->
-                <a role="button" class="btn btn-sm mb-2 btn-warning">{{ article.category.title }}</a>
-                <!-- 标签 -->
-                <span>
+            <div class="row mt-2">
+                <!-- 文章内容 -->
+                <!-- 标题图 -->
+                <div class="col-3">
+                    <a href="{% url 'studyhome:detail' %}?id={{ article.id }}">
+                        <img src="{{ article.avatar.url }}" alt="avatar" style="max-width:100%; border-radius: 20px">
+                    </a>
+                </div>
+                <div class="col">
+                    <!-- 栏目 -->
+                    <a role="button" class="btn btn-sm mb-2 btn-warning">{{ article.category.title }}</a>
+                    <!-- 标签 -->
+                    <span>
                         <a class="badge badge-secondary">{{ article.tags }}</a>
                 </span>
-                <!-- 标题 -->
-                <h4>
-                    <b><a href="{% url 'studyhome:detail' %}?id={{ article.id }}" style="color: black;">{{ article.title }}</a></b>
-                </h4>
-                <!-- 摘要 -->
-                <div>
-                    <p style="color: gray;">
-                        {{ article.sumary }}
+                    <!-- 标题 -->
+                    <h4>
+                        <b><a href="{% url 'studyhome:detail' %}?id={{ article.id }}"
+                              style="color: black;">{{ article.title }}</a></b>
+                    </h4>
+                    <!-- 摘要 -->
+                    <div>
+                        <p style="color: gray;">
+                            {{ article.sumary }}
+                        </p>
+                    </div>
+                    <!-- 注脚 -->
+                    <p>
+                        <!-- 点赞、查看、评论、时间 -->
+                        <span><i class="fas fa-eye" style="color: lightskyblue;"></i>{{ article.total_views }}&nbsp;&nbsp;&nbsp;</span>
+                        <span><i class="fas fa-comments" style="color: yellowgreen;"></i>{{ article.comments_count }}&nbsp;&nbsp;&nbsp;</span>
+                        <span><i class="fas fa-clock" style="color: pink;"></i>{{ article.created | date }}</span>
                     </p>
                 </div>
-                <!-- 注脚 -->
-                <p>
-                    <!-- 点赞、查看、评论、时间 -->
-                    <span><i class="fas fa-eye" style="color: lightskyblue;"></i>{{ article.total_views }}&nbsp;&nbsp;&nbsp;</span>
-                    <span><i class="fas fa-comments" style="color: yellowgreen;"></i>{{ article.comments_count }}&nbsp;&nbsp;&nbsp;</span>
-                    <span><i class="fas fa-clock" style="color: pink;"></i>{{ article.created | date }}</span>
-                </p>
+                <hr style="width: 100%;"/>
             </div>
-            <hr style="width: 100%;"/>
-        </div>
         {% endfor %}
         <!-- 页码导航 -->
         <div class="pagenation" style="text-align: center">

@@ -72,6 +72,7 @@ class Article(models.Model):
         app_label = 'home'
 
 
+
     # 函数 __str__ 定义当调用对象的 str() 方法时的返回值内容
     # 它最常见的就是在Django管理后台中做为对象的显示值。因此应该总是为 __str__ 返回一个友好易读的字符串
     def __str__(self):
@@ -101,4 +102,5 @@ class Comment(models.Model):
         verbose_name = '评论管理'
         verbose_name_plural = verbose_name
         app_label = 'home'
+
 

@@ -5,7 +5,7 @@
     <!-- 网站采用的字符编码 -->
     <meta charset="utf-8">
     {#网页标题内容块#}
-	<title>{% block title %}{% endblock title %}</title>
+    <title>{% block title %}{% endblock title %}</title>
     <!-- 引入bootstrap的css文件 -->
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     {% block topfiles %}{% endblock topfiles %}
@@ -17,27 +17,29 @@
 {# 网页顶部文件块#}
 {% block header %}{% endblock header %}
 <div id="app">
-<!-- 定义导航栏 -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- 定义导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <div class="container">
-        <!-- 导航栏商标 -->
-        {% block reindex %}{% endblock reindex %}
-        <div>
-            <a class="navbar-brand" href="{% url 'studyhome:homepage' %}">个人博客</a>
+        <div class="container">
+            <!-- 导航栏商标 -->
+            {% block reindex %}{% endblock reindex %}
+            <div>
+                <a class="navbar-brand" href="{% url 'studyhome:homepage' %}">个人博客</a>
+            </div>
+            <!-- 分类 -->
+            {% block classify %}{% endblock classify %}
+
         </div>
-        <!-- 分类 -->
-        {% block classify %}{% endblock classify %}
 
-    </div>
-
-    <!--登录/个人中心-->
-    <div class="navbar-collapse">
+        <!--登录/个人中心-->
+        <div class="navbar-collapse">
             <ul class="nav navbar-nav">
                 <!-- 如果用户已经登录，则显示用户名下拉框 -->
                 <li class="nav-item dropdown" v-if="is_login">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="show_menu_click">[[username]]</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="display: block" v-show="show_menu">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="show_menu_click">[[username]]</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="display: block"
+                         v-show="show_menu">
                         <a class="dropdown-item" href="{% url 'studyusers:writeblog' %}">写文章</a>
                         <a class="dropdown-item" href='{% url 'studyusers:center' %}'>个人信息</a>
                         <a class="dropdown-item" href='{% url 'studyusers:logout' %}'>退出登录</a>
@@ -48,18 +50,18 @@
                     <a class="nav-link" href="{% url 'studyusers:login' %}">登录</a>
                 </li>
             </ul>
-    </div>
-</nav>
+        </div>
+    </nav>
 
-{% block body %}{% endblock body %}
+    {% block body %}{% endblock body %}
 
 
-<!-- Footer -->
-<footer class="py-3 bg-dark" id="footer">
-    <div class="container">
-        <h5 class="m-0 text-center text-white">Copyright @ 十七</h5>
-    </div>
-</footer>
+    <!-- Footer -->
+    <footer class="py-3 bg-dark" id="footer">
+        <div class="container">
+            <h5 class="m-0 text-center text-white">Copyright @ 十七</h5>
+        </div>
+    </footer>
 
 
 </div>

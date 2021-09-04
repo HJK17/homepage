@@ -2,6 +2,7 @@ import sys
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # 设置多个应用路径
@@ -169,12 +170,12 @@ SESSION_CACHE_ALIAS = "session"
 AUTH_USER_MODEL = 'users.User'
 
 # 设置未登录用户，必须登录的跳转连接
-LOGIN_URL = '/study/login/'
+LOGIN_URL = '/login/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # 图片的统一路由
 MEDIA_URL = '/media/'
-#
+
 # # 设置Django的文件存储类
 # DEFAULT_FILE_STORAGE = 'utils.fdfs.storage.FDFSStorage'
 #
