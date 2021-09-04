@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'study_resource.home',
     'study_resource.users',
     'personal_project.goods',
+    'personal_project.user',
+    'personal_project.order',
+    'personal_project.cart',
 
 ]
 
@@ -102,7 +105,11 @@ DATABASE_APPS_MAPPING = {
     # 'admin': 'defualt',
     'users': 'blog',
     'home': 'blog',
-    'personal_project': 'alloygame',
+    'goods': 'alloygame',
+    'order': 'alloygame',
+    'cart': 'alloygame',
+    'user': 'alloygame',
+
 }
 
 # Password validation

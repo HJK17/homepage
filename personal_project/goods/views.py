@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.views import View
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 # Create your views here.
 
 
-class GoodspageView(View):
-    def get(self, request):
-        render(request, 'project/goodspage.html')
+def Goodspage(request):
+    return render(request, 'project/goodspage.html')
