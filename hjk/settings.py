@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'study_resource.home',
     'study_resource.users',
+    'personal_project.goods',
 
 ]
 
