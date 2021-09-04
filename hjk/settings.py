@@ -6,6 +6,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 # 设置多个应用路径
 sys.path.insert(0, os.path.join(BASE_DIR, 'study_resource'))
+sys.path.insert(0, os.path.join(BASE_DIR, 'personal_project'))
+
 # 多级templates不警告
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -151,7 +153,29 @@ AUTH_USER_MODEL = 'users.User'
 # 设置未登录用户，必须登录的跳转连接
 LOGIN_URL = '/study/login/'
 
-# 设置图片上传路径
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # 图片的统一路由
 MEDIA_URL = '/media/'
+#
+# # 设置Django的文件存储类
+# DEFAULT_FILE_STORAGE = 'utils.fdfs.storage.FDFSStorage'
+#
+# # 设置fdfs使用的client.conf文件路径
+# FDFS_CLIENT_CONF = './personal_project/utils/fdfs/client.conf'
+#
+# # 设置fdfs存储服务器上nginx的IP和端口号
+# FDFS_URL = 'http://192.168.1.132:8888/'
+#
+# # 全文检索框架的配置
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         # 使用whoosh引擎
+#         # 'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+#         'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+#         # 索引文件路径
+#         'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+#     }
+# }
+#
+# # 当添加、修改、删除数据时，自动生成索引
+# HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
