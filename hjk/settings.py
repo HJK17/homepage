@@ -91,7 +91,7 @@ DATABASES = {
 
 DATABASE_ROUTERS = [
     # 'path.to.PrimaryReplicaRouter',
-    'hjk.database_router.Study', 'hjk.database_router.Project'
+    'hjk.database_router.DatabaseAppsRouter'
 ]
 
 DATABASE_APPS_MAPPING = {
