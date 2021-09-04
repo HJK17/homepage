@@ -19,6 +19,7 @@ class ArticleCategory(models.Model):
         db_table = 'tb_category'
         verbose_name = '类别管理'
         verbose_name_plural = verbose_name
+        app_label = 'home'
 
 
 from study_resource.users.models import User
@@ -68,6 +69,8 @@ class Article(models.Model):
         db_table = 'tb_article'
         verbose_name = '文章管理'
         verbose_name_plural = verbose_name
+        app_label = 'home'
+
 
     # 函数 __str__ 定义当调用对象的 str() 方法时的返回值内容
     # 它最常见的就是在Django管理后台中做为对象的显示值。因此应该总是为 __str__ 返回一个友好易读的字符串
@@ -97,3 +100,5 @@ class Comment(models.Model):
         db_table = 'tb_comment'
         verbose_name = '评论管理'
         verbose_name_plural = verbose_name
+        app_label = 'home'
+

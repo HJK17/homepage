@@ -71,7 +71,7 @@ WSGI_APPLICATION = 'hjk.wsgi.application'
 
 DATABASES = {
     'default': {},
-    'study': {
+    'blog': {
         'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
         'HOST': '192.168.1.132',  # 数据库主机
         'PORT': 3306,  # 数据库端口
@@ -79,7 +79,7 @@ DATABASES = {
         'PASSWORD': '123456',  # 数据库用户密码
         'NAME': 'blog'  # 数据库名字
     },
-    'project': {
+    'alloygame': {
         'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
         'HOST': '192.168.1.132',  # 数据库主机
         'PORT': 3306,  # 数据库端口
@@ -98,8 +98,9 @@ DATABASE_APPS_MAPPING = {
     # example:
     # 'app_name':'database_name',
     # 'admin': 'defualt',
-    'study_resource': 'blog',
-    'personal': 'alloygame',
+    'users': 'blog',
+    'home': 'blog',
+    'personal_project': 'alloygame',
 }
 
 # Password validation

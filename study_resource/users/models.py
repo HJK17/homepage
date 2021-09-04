@@ -21,3 +21,7 @@ class User(AbstractUser):
 
     # 创建超级管理员时需要必须设置的字段
     REQUIRED_FIELDS = ['username', 'email']
+
+    class Meta:
+        app_label = 'users'
+
