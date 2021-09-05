@@ -13,18 +13,18 @@ class Migration(migrations.Migration):
         ('order', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('goods', '0001_initial'),
-        ('user', '0001_initial'),
+        ('users', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='orderinfo',
             name='addr',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='user.address', verbose_name='地址'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='users.address', verbose_name='地址'),
         ),
         migrations.AddField(
             model_name='orderinfo',
-            name='user',
+            name='users',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='用户'),
         ),
         migrations.AddField(

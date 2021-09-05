@@ -4,13 +4,13 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('goods.urls', namespace='pgoods')),
-    path('', include('user.urls', namespace='puser')),
-    path('', include('order.urls', namespace='porder')),
-    path('', include('cart.urls', namespace='pcart')),
+    path('', include('personal_project.goods.urls', namespace='pgoods')),
+    path('', include('personal_project.user.urls', namespace='puser')),
+    path('', include('personal_project.order.urls', namespace='porder')),
+    path('', include('personal_project.cart.urls', namespace='pcart')),
 
-    path('', include('home.urls', namespace='studyhome')),
-    path('', include('users.urls', namespace='studyusers')),
+    path('', include('study_resource.home.urls', namespace='studyhome')),
+    path('', include('study_resource.users.urls', namespace='studyusers')),
 ]
 
 from django.conf import settings

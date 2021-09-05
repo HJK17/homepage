@@ -145,11 +145,11 @@
                 location_hash = locationWrapper.get();
 
             if (location_hash != iframe_hash) {
-                if (location_hash == self._appState) {    // user used Back or Forward button
+                if (location_hash == self._appState) {    // users used Back or Forward button
                     self._appState = iframe_hash;
                     locationWrapper.put(iframe_hash);
                     self.callback(iframe_hash); 
-                } else {                              // user loaded new bookmark
+                } else {                              // users loaded new bookmark
                     self._appState = location_hash;  
                     iframeWrapper.put(location_hash);
                     self.callback(location_hash);

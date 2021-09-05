@@ -11,11 +11,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='user',
+            model_name='users',
             name='avater',
         ),
         migrations.AddField(
-            model_name='user',
+            model_name='users',
             name='avatar',
             field=models.ImageField(blank=True, upload_to='avatar/%Y%m%d/'),
         ),

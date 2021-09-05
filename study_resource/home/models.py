@@ -88,7 +88,7 @@ class Comment(models.Model):
                                 on_delete=models.SET_NULL,
                                 null=True)
     # 发表评论的用户
-    user = models.ForeignKey('users.User',
+    user = models.ForeignKey('study_resource.users.User',
                              on_delete=models.SET_NULL,
                              null=True)
     # 评论发布时间
