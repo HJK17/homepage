@@ -2,7 +2,6 @@ import sys
 import os
 from pathlib import Path
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # 设置多个应用路径
@@ -38,6 +37,7 @@ INSTALLED_APPS = [
     'personal_project.user',
     'personal_project.order',
     'personal_project.cart',
+    'tinymce',
 
 ]
 

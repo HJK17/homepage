@@ -11,7 +11,7 @@ logger = logging.getLogger('django')
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'mypage.html.html')
 
 
 class Homepage(View):

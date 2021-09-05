@@ -5,6 +5,10 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('goods.urls', namespace='pgoods')),
+    path('', include('user.urls', namespace='puser')),
+    path('', include('order.urls', namespace='porder')),
+    path('', include('cart.urls', namespace='pcart')),
+
     path('', include('home.urls', namespace='studyhome')),
     path('', include('users.urls', namespace='studyusers')),
 ]
