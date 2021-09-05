@@ -20,7 +20,7 @@ class AddressManager(models.Manager):
         return address
 
     class Meta:
-        app_label = 'user'
+        app_label = 'users'
 
 
 class User(AbstractUser, BaseModel):
@@ -35,8 +35,7 @@ class User(AbstractUser, BaseModel):
         db_table = 'ag_user'
         verbose_name = '用户'
         verbose_name_plural = verbose_name
-        app_label = 'user'
-
+        app_label = 'users'
 
 
 class Address(BaseModel):
@@ -56,5 +55,4 @@ class Address(BaseModel):
         db_table = 'ag_address'
         verbose_name = '地址'
         verbose_name_plural = verbose_name
-        app_label = 'user'
-
+        app_label = 'users'
